@@ -24,8 +24,6 @@
             --text-secondary: #b0b0b0;
             --bg-dark: #0f0f1e;
             --border-glow: 1px solid rgba(0, 212, 255, 0.2);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.8);
-            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         html {
@@ -113,11 +111,12 @@
         }
 
         nav a:hover,
-        nav a:hover::after {
+        nav a.active {
             color: var(--primary);
         }
 
-        nav a:hover::after {
+        nav a:hover::after,
+        nav a.active::after {
             width: 100%;
         }
 
@@ -140,10 +139,31 @@
             box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
         }
 
+        /* Page Container */
+        .page {
+            display: none;
+            margin-top: 70px;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Hero Section */
         .hero {
-            margin-top: 70px;
-            min-height: 100vh;
+            min-height: calc(100vh - 70px);
             background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
             position: relative;
             overflow: hidden;
@@ -245,7 +265,6 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 4rem;
         }
 
         .btn-primary {
@@ -285,8 +304,8 @@
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
         }
 
-        /* Pillars Section */
-        .pillars {
+        /* Content Section */
+        .content-section {
             padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -309,7 +328,7 @@
             background-clip: text;
         }
 
-        .pillars-subtitle {
+        .section-subtitle {
             font-size: 1.2rem;
             color: var(--text-secondary);
             margin-bottom: 4rem;
@@ -319,13 +338,13 @@
             text-align: center;
         }
 
-        .pillars-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
-        .pillar-card {
+        .card {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
             border: 1px solid rgba(0, 212, 255, 0.15);
             padding: 2.5rem;
@@ -335,7 +354,7 @@
             overflow: hidden;
         }
 
-        .pillar-card::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -346,48 +365,48 @@
             transition: left 0.5s ease;
         }
 
-        .pillar-card:hover {
+        .card:hover {
             border-color: var(--primary);
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
             transform: translateY(-8px);
         }
 
-        .pillar-card:hover::before {
+        .card:hover::before {
             left: 100%;
         }
 
-        .pillar-icon {
+        .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        .pillar-card h3 {
+        .card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.8rem;
             color: var(--text-primary);
             font-weight: 700;
         }
 
-        .pillar-card p {
+        .card p {
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.7;
             margin-bottom: 1.5rem;
         }
 
-        .pillar-features {
+        .card-features {
             list-style: none;
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
-        .pillar-features li {
+        .card-features li {
             margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
         }
 
-        .pillar-features li::before {
+        .card-features li::before {
             content: '→';
             position: absolute;
             left: 0;
@@ -395,21 +414,7 @@
             font-weight: 700;
         }
 
-        /* Editions Section */
-        .editions {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
-            padding: 6rem 2rem;
-            margin: 4rem 0;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-        }
-
-        .editions-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
+        /* Edition Grid */
         .editions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -481,13 +486,7 @@
             color: var(--primary);
         }
 
-        /* fAI Section */
-        .fai {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
+        /* fAI Content */
         .fai-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -547,25 +546,7 @@
             line-height: 1.7;
         }
 
-        /* Privacy Section */
-        .privacy {
-            background: rgba(0, 212, 255, 0.03);
-            border: 1px solid rgba(0, 212, 255, 0.1);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 4rem 0;
-            border-radius: 12px;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .privacy h2 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-        }
-
+        /* Privacy Grid */
         .privacy-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -575,6 +556,10 @@
 
         .privacy-item {
             padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 8px;
+            text-align: center;
         }
 
         .privacy-item strong {
@@ -597,6 +582,9 @@
             margin: 4rem 0;
             border-radius: 12px;
             box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-section h2 {
@@ -675,10 +663,6 @@
                 font-size: 2.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
             .section-title {
                 font-size: 2.5rem;
             }
@@ -690,6 +674,10 @@
 
             .edition-card.featured {
                 transform: scale(1);
+            }
+
+            .page {
+                margin-top: 100px;
             }
         }
 
@@ -705,230 +693,325 @@
             .logo {
                 font-size: 1.4rem;
             }
+
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">Forge<span class="logo-accent">OS</span></a>
+        <a href="index.html" class="logo">Forge<span class="logo-accent">OS</span></a>
         <ul>
-            <li><a href="#pillars">Features</a></li>
-            <li><a href="#editions">Editions</a></li>
-            <li><a href="#fai">fAI</a></li>
+            <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+            <li><a href="features.html" class="nav-link" data-page="features">Features</a></li>
+            <li><a href="editions.html" class="nav-link" data-page="editions">Editions</a></li>
+            <li><a href="fai.html" class="nav-link" data-page="fai">fAI</a></li>
             <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub</a></li>
         </ul>
         <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="nav-button">Documentation</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">RELEASING 2027</div>
-            <h1>ForgeOS: <span>Gaming, Creation & AI</span></h1>
-            <p class="hero-subtitle">A modern operating system designed for gaming, content creation, and artificial intelligence. Fast, lightweight, private. No ads, no forced accounts, no telemetry.</p>
-            
-            <div class="hero-buttons">
-                <a href="#editions" class="btn-primary">Explore Editions</a>
-                <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-secondary">View on GitHub</a>
-            </div>
+    <!-- Pages Container -->
+    <div id="pages-container">
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-badge">RELEASING 2027</div>
+                    <h1>ForgeOS: <span>Gaming, Creation & AI</span></h1>
+                    <p class="hero-subtitle">A modern operating system designed for gaming, content creation, and artificial intelligence. Fast, lightweight, private. No ads, no forced accounts, no telemetry.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="editions.html" class="btn-primary">Explore Editions</a>
+                        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-secondary">View on GitHub</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title">Built on Three <span>Core Pillars</span></h2>
+                <p class="section-subtitle">ForgeOS is engineered for gaming, content creation, and artificial intelligence with a clean desktop and lightweight architecture.</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">G</div>
+                        <h3>Gaming</h3>
+                        <p>Complete gaming stack pre-installed and optimized. Play modern titles with confidence.</p>
+                        <ul class="card-features">
+                            <li>Steam with Proton</li>
+                            <li>Lutris compatibility</li>
+                            <li>MangoHud & Gamemode</li>
+                            <li>Gamescope support</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">C</div>
+                        <h3>Content Creation</h3>
+                        <p>Professional tools for creators built in. Edit, compose, and design without limits.</p>
+                        <ul class="card-features">
+                            <li>Blender 3D</li>
+                            <li>OBS Studio</li>
+                            <li>Kdenlive editing</li>
+                            <li>GIMP, Inkscape, Krita</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">A</div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>fAI: local, private AI processing. Chat, vision, voice, code, and translation.</p>
+                        <ul class="card-features">
+                            <li>All processing local</li>
+                            <li>No external servers</li>
+                            <li>Full privacy</li>
+                            <li>User controlled</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h2>Coming in 2027</h2>
+                <p>All four editions available for free download. ForgeOS is free, open-source, and community-driven.</p>
+                <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Watch on GitHub</a>
+            </section>
         </div>
-    </section>
 
-    <!-- Core Pillars Section -->
-    <section class="pillars" id="pillars">
-        <h2 class="section-title">Built on Three <span>Core Pillars</span></h2>
-        <p class="pillars-subtitle">ForgeOS is engineered for gaming, content creation, and artificial intelligence with a clean desktop and lightweight architecture.</p>
-        
-        <div class="pillars-grid">
-            <div class="pillar-card">
-                <div class="pillar-icon">G</div>
-                <h3>Gaming</h3>
-                <p>Complete gaming stack pre-installed and optimized. Play modern titles with confidence.</p>
-                <ul class="pillar-features">
-                    <li>Steam with Proton</li>
-                    <li>Lutris compatibility</li>
-                    <li>MangoHud & Gamemode</li>
-                    <li>Gamescope support</li>
-                </ul>
-            </div>
-
-            <div class="pillar-card">
-                <div class="pillar-icon">C</div>
-                <h3>Content Creation</h3>
-                <p>Professional tools for creators built in. Edit, compose, and design without limits.</p>
-                <ul class="pillar-features">
-                    <li>Blender 3D</li>
-                    <li>OBS Studio</li>
-                    <li>Kdenlive editing</li>
-                    <li>GIMP, Inkscape, Krita</li>
-                </ul>
-            </div>
-
-            <div class="pillar-card">
-                <div class="pillar-icon">A</div>
-                <h3>Artificial Intelligence</h3>
-                <p>fAI: local, private AI processing. Chat, vision, voice, code, and translation.</p>
-                <ul class="pillar-features">
-                    <li>All processing local</li>
-                    <li>No external servers</li>
-                    <li>Full privacy</li>
-                    <li>User controlled</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Editions Section -->
-    <section class="editions" id="editions">
-        <div class="editions-container">
-            <h2 class="section-title">Four Editions, <span>Every Use Case</span></h2>
-            <p class="pillars-subtitle">ForgeOS adapts to your hardware and needs. From powerful gaming rigs to older hardware, there's a ForgeOS edition for you.</p>
-            
-            <div class="editions-grid">
-                <div class="edition-card featured">
-                    <div class="edition-badge">FLAGSHIP</div>
-                    <h3>ForgeOS Pro</h3>
-                    <p class="edition-subtitle">The complete experience for creators and gamers</p>
-                    <ul class="edition-specs">
-                        <li><strong>Processor:</strong> Octa-core recommended</li>
-                        <li><strong>Memory:</strong> 16 GB or more</li>
-                        <li><strong>Storage:</strong> 100 GB NVMe SSD</li>
-                        <li><strong>Graphics:</strong> RTX 3070 or better</li>
-                    </ul>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Full desktop, gaming stack, creation tools, fAI with all features.</p>
+        <!-- Features Page -->
+        <div id="features-page" class="page">
+            <section class="content-section">
+                <h2 class="section-title">Complete <span>Feature Set</span></h2>
+                <p class="section-subtitle">Everything you need built in. From gaming to creation to AI, ForgeOS is fully equipped.</p>
+                
+                <h3 style="color: var(--primary); font-size: 2rem; margin-top: 4rem; margin-bottom: 2rem;">Gaming Stack</h3>
+                <div class="grid" style="margin-bottom: 4rem;">
+                    <div class="card">
+                        <h3>Steam & Proton</h3>
+                        <p>Play thousands of games with Steam and Proton compatibility layer. Run Windows games natively on Linux.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Lutris</h3>
+                        <p>Universal gaming platform for managing and launching games from multiple sources with optimized configurations.</p>
+                    </div>
+                    <div class="card">
+                        <h3>MangoHud</h3>
+                        <p>In-game overlay to monitor performance metrics including FPS, GPU/CPU usage, and temperatures.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Gamemode</h3>
+                        <p>Automatic performance optimization daemon that adjusts system settings for optimal gaming performance.</p>
+                    </div>
                 </div>
 
-                <div class="edition-card">
-                    <div class="edition-badge">EVERYDAY</div>
-                    <h3>ForgeOS Home</h3>
-                    <p class="edition-subtitle">For families and everyday users</p>
-                    <ul class="edition-specs">
-                        <li><strong>Processor:</strong> Dual-core</li>
-                        <li><strong>Memory:</strong> 4 GB minimum</li>
-                        <li><strong>Storage:</strong> 25 GB</li>
-                        <li><strong>Includes:</strong> Firefox, LibreOffice</li>
-                    </ul>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Clean, fast desktop for daily tasks. Includes parental controls.</p>
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">Content Creation Tools</h3>
+                <div class="grid" style="margin-bottom: 4rem;">
+                    <div class="card">
+                        <h3>Blender 3D</h3>
+                        <p>Professional 3D modeling, animation, rendering, and visual effects creation suite.</p>
+                    </div>
+                    <div class="card">
+                        <h3>OBS Studio</h3>
+                        <p>Streaming and recording software for content creators. Broadcasting to multiple platforms simultaneously.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Kdenlive</h3>
+                        <p>Non-linear video editor with advanced effects, transitions, and color grading capabilities.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Audio Suite</h3>
+                        <p>Ardour, Audacity, and LMMS for music production, audio editing, and beat making.</p>
+                    </div>
                 </div>
 
-                <div class="edition-card">
-                    <div class="edition-badge">EDUCATION</div>
-                    <h3>ForgeOS Edu</h3>
-                    <p class="edition-subtitle">Purpose-built for classrooms</p>
-                    <ul class="edition-specs">
-                        <li><strong>Processor:</strong> Dual-core</li>
-                        <li><strong>Memory:</strong> 2 GB minimum</li>
-                        <li><strong>Storage:</strong> 15 GB</li>
-                        <li><strong>Free:</strong> For all schools</li>
-                    </ul>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Classroom management, locked exam mode, Python, Scratch, Arduino.</p>
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">System Features</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Forge Desktop</h3>
+                        <p>Custom desktop environment with visual effects. Dark charcoal background with cyan accents. Fully intuitive.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Forge App Center</h3>
+                        <p>Curated software library with one-click installation. Discover and manage applications easily.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Forge Control Panel</h3>
+                        <p>Single location for all system settings. Display, audio, network, power management, and user accounts.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Terminal Optional</h3>
+                        <p>Fully usable without command line. Every setting and operation through graphical interface.</p>
+                    </div>
                 </div>
-
-                <div class="edition-card">
-                    <div class="edition-badge">LIGHTWEIGHT</div>
-                    <h3>ForgeOS Lite</h3>
-                    <p class="edition-subtitle">For older computers and limited hardware</p>
-                    <ul class="edition-specs">
-                        <li><strong>Processor:</strong> Single-core</li>
-                        <li><strong>Memory:</strong> 1 GB minimum</li>
-                        <li><strong>Storage:</strong> 10 GB</li>
-                        <li><strong>RAM Usage:</strong> Under 300 MB idle</li>
-                    </ul>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Run from USB stick. Essential tools for everyone.</p>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
 
-    <!-- fAI Section -->
-    <section class="fai" id="fai">
-        <h2 class="section-title">Meet <span>fAI</span></h2>
-        <p class="pillars-subtitle">Exclusive to ForgeOS Pro: Local, private artificial intelligence. All processing happens on your hardware. No external servers. No data transmission.</p>
-        
-        <div class="fai-content">
-            <div>
-                <div class="fai-highlight">
-                    <h4>Complete Privacy</h4>
-                    <p>Every fAI feature processes data locally on your computer. Your conversations, images, code, and documents never leave your system.</p>
+        <!-- Editions Page -->
+        <div id="editions-page" class="page">
+            <section class="content-section">
+                <h2 class="section-title">Four Editions, <span>Every Use Case</span></h2>
+                <p class="section-subtitle">ForgeOS adapts to your hardware and needs. From powerful gaming rigs to older hardware, there's a ForgeOS edition for you.</p>
+                
+                <div class="editions-grid">
+                    <div class="edition-card featured">
+                        <div class="edition-badge">FLAGSHIP</div>
+                        <h3>ForgeOS Pro</h3>
+                        <p class="edition-subtitle">The complete experience for creators and gamers</p>
+                        <ul class="edition-specs">
+                            <li><strong>Processor:</strong> Octa-core recommended</li>
+                            <li><strong>Memory:</strong> 16 GB or more</li>
+                            <li><strong>Storage:</strong> 100 GB NVMe SSD</li>
+                            <li><strong>Graphics:</strong> RTX 3070 or better</li>
+                        </ul>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Full desktop, gaming stack, creation tools, fAI with all features enabled.</p>
+                    </div>
+
+                    <div class="edition-card">
+                        <div class="edition-badge">EVERYDAY</div>
+                        <h3>ForgeOS Home</h3>
+                        <p class="edition-subtitle">For families and everyday users</p>
+                        <ul class="edition-specs">
+                            <li><strong>Processor:</strong> Dual-core</li>
+                            <li><strong>Memory:</strong> 4 GB minimum</li>
+                            <li><strong>Storage:</strong> 25 GB</li>
+                            <li><strong>Includes:</strong> Firefox, LibreOffice</li>
+                        </ul>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Clean, fast desktop with parental controls and family account management.</p>
+                    </div>
+
+                    <div class="edition-card">
+                        <div class="edition-badge">EDUCATION</div>
+                        <h3>ForgeOS Edu</h3>
+                        <p class="edition-subtitle">Purpose-built for classrooms</p>
+                        <ul class="edition-specs">
+                            <li><strong>Processor:</strong> Dual-core</li>
+                            <li><strong>Memory:</strong> 2 GB minimum</li>
+                            <li><strong>Storage:</strong> 15 GB</li>
+                            <li><strong>Free:</strong> For all schools</li>
+                        </ul>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Classroom management, exam mode, Python, Scratch, and Arduino IDE built-in.</p>
+                    </div>
+
+                    <div class="edition-card">
+                        <div class="edition-badge">LIGHTWEIGHT</div>
+                        <h3>ForgeOS Lite</h3>
+                        <p class="edition-subtitle">For older computers and limited hardware</p>
+                        <ul class="edition-specs">
+                            <li><strong>Processor:</strong> Single-core</li>
+                            <li><strong>Memory:</strong> 1 GB minimum</li>
+                            <li><strong>Storage:</strong> 10 GB</li>
+                            <li><strong>RAM Usage:</strong> Under 300 MB idle</li>
+                        </ul>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Run from USB stick. Essential tools with minimal resource footprint.</p>
+                    </div>
                 </div>
-                <ul class="fai-features">
-                    <li>
-                        <strong>fAI Chat</strong>
-                        <p>Local language model with graphical chat interface. Conversation, writing, coding questions, research.</p>
-                    </li>
-                    <li>
-                        <strong>fAI Vision</strong>
-                        <p>Image generation, editing, inpainting, and upscaling. Accessible from the right-click menu.</p>
-                    </li>
-                    <li>
-                        <strong>fAI Voice</strong>
-                        <p>Speech-to-text dictation in any text field. Text-to-speech with natural voices. Fully offline.</p>
-                    </li>
-                </ul>
-            </div>
 
-            <div>
-                <ul class="fai-features">
-                    <li>
-                        <strong>fAI Code</strong>
-                        <p>Code assistant in your text editor. Autocomplete suggestions, error detection, refactoring help.</p>
-                    </li>
-                    <li>
-                        <strong>fAI Translate</strong>
-                        <p>Offline translation for text and documents. Multiple languages without internet connection.</p>
-                    </li>
-                    <li>
-                        <strong>Flexible Models</strong>
-                        <p>Download and run different open models through the fAI interface. User controlled, not bundled.</p>
-                    </li>
-                    <li>
-                        <strong>Hardware Requirements</strong>
-                        <p>fAI Chat needs 4GB VRAM. fAI Vision needs 6GB VRAM. Voice, Code, and Translate have no additional requirements.</p>
-                    </li>
-                </ul>
-            </div>
+                <section class="cta-section" style="margin-top: 6rem;">
+                    <h2>Choose Your Edition</h2>
+                    <p>All editions are free and available in 2027. Find the perfect fit for your needs.</p>
+                    <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Learn More</a>
+                </section>
+            </section>
         </div>
-    </section>
 
-    <!-- Privacy Section -->
-    <section class="privacy">
-        <h2>Built for <span style="color: var(--primary);">Privacy</span></h2>
-        <p style="color: var(--text-secondary); margin-bottom: 2rem;">ForgeOS respects your privacy by design. No compromises.</p>
-        <div class="privacy-features">
-            <div class="privacy-item">
-                <strong>No Telemetry</strong>
-                <p>Zero data collection or transmission</p>
-            </div>
-            <div class="privacy-item">
-                <strong>No Ads</strong>
-                <p>Clean system, no advertisements</p>
-            </div>
-            <div class="privacy-item">
-                <strong>No Required Accounts</strong>
-                <p>Local account created at install</p>
-            </div>
-            <div class="privacy-item">
-                <strong>Full Encryption</strong>
-                <p>Disk encryption available</p>
-            </div>
-            <div class="privacy-item">
-                <strong>Firewall Default</strong>
-                <p>Protection enabled out of the box</p>
-            </div>
-            <div class="privacy-item">
-                <strong>Auto Security Updates</strong>
-                <p>Silent, automatic security patching</p>
-            </div>
+        <!-- fAI Page -->
+        <div id="fai-page" class="page">
+            <section class="content-section">
+                <h2 class="section-title">Introducing <span>fAI</span></h2>
+                <p class="section-subtitle">Exclusive to ForgeOS Pro: Local, private artificial intelligence. All processing happens on your hardware. No external servers. No data transmission.</p>
+                
+                <div class="fai-content">
+                    <div>
+                        <div class="fai-highlight">
+                            <h4>Complete Privacy Guaranteed</h4>
+                            <p>Every fAI feature processes data locally on your computer. Your conversations, images, code, and documents never leave your system. You have full control.</p>
+                        </div>
+                        <ul class="fai-features">
+                            <li>
+                                <strong>fAI Chat</strong>
+                                <p>Local language model with graphical chat interface. Conversation, writing, coding questions, and research assistance.</p>
+                            </li>
+                            <li>
+                                <strong>fAI Vision</strong>
+                                <p>Image generation, editing, inpainting, and upscaling. Accessible directly from the right-click menu in file manager and desktop.</p>
+                            </li>
+                            <li>
+                                <strong>fAI Voice</strong>
+                                <p>Speech-to-text dictation that works in any text field. Text-to-speech with natural voices. Fully offline operation.</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <ul class="fai-features">
+                            <li>
+                                <strong>fAI Code</strong>
+                                <p>Code assistant integrated with system text editor. Autocomplete suggestions, error detection, and refactoring help.</p>
+                            </li>
+                            <li>
+                                <strong>fAI Translate</strong>
+                                <p>Offline translation for text and documents. Covers multiple languages without requiring internet connection.</p>
+                            </li>
+                            <li>
+                                <strong>Flexible Model Management</strong>
+                                <p>Download and run different open models through the fAI interface. No specific models bundled. Full user control.</p>
+                            </li>
+                            <li>
+                                <strong>Hardware Requirements</strong>
+                                <p>fAI Chat: 4GB VRAM. fAI Vision: 6GB VRAM. Voice, Code, Translate: No additional requirements.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem; padding: 2rem; background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.15); border-radius: 10px;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Why Local AI Matters</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Cloud-based AI services collect your data, train on your inputs, and depend on internet connectivity. fAI is different. Everything stays private. Everything stays fast. Everything stays under your control.</p>
+                    <p style="color: var(--text-secondary);">ForgeOS gives you the power of modern AI without compromising your privacy or your freedom.</p>
+                </div>
+
+                <section class="privacy-features" style="margin-top: 4rem;">
+                    <div class="privacy-item">
+                        <strong>No Cloud Dependency</strong>
+                        <p>Works completely offline</p>
+                    </div>
+                    <div class="privacy-item">
+                        <strong>No Data Collection</strong>
+                        <p>Your data stays on your computer</p>
+                    </div>
+                    <div class="privacy-item">
+                        <strong>No Accounts Required</strong>
+                        <p>No login, no registration</p>
+                    </div>
+                    <div class="privacy-item">
+                        <strong>No Licensing Fees</strong>
+                        <p>Included with ForgeOS Pro</p>
+                    </div>
+                    <div class="privacy-item">
+                        <strong>No Usage Limits</strong>
+                        <p>Use as much as you want</p>
+                    </div>
+                    <div class="privacy-item">
+                        <strong>No Censorship</strong>
+                        <p>You control the models</p>
+                    </div>
+                </section>
+
+                <section class="cta-section" style="margin-top: 6rem;">
+                    <h2>Experience fAI Today</h2>
+                    <p>Available in ForgeOS Pro. Exclusively local, exclusively yours.</p>
+                    <a href="editions.html" class="btn-primary">Get ForgeOS Pro</a>
+                </section>
+            </section>
         </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <h2>Coming in 2027</h2>
-        <p>All four editions available for free download. ForgeOS is free, open-source, and community-driven.</p>
-        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Watch on GitHub</a>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -936,9 +1019,9 @@
             <div class="footer-section">
                 <h4>ForgeOS</h4>
                 <ul>
-                    <li><a href="#pillars">Features</a></li>
-                    <li><a href="#editions">Editions</a></li>
-                    <li><a href="#fai">fAI</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="editions.html">Editions</a></li>
+                    <li><a href="fai.html">fAI</a></li>
                     <li><a href="https://github.com/ma19031435-eng/forgeos/releases" target="_blank">Releases</a></li>
                 </ul>
             </div>
@@ -975,38 +1058,37 @@
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Page navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+
+        function showPage(pageName) {
+            pages.forEach(page => page.classList.remove('active'));
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            const activePage = document.getElementById(pageName + '-page');
+            if (activePage) {
+                activePage.classList.add('active');
+            }
+
+            const activeLink = document.querySelector(`[data-page="${pageName}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                const pageName = link.getAttribute('data-page');
+                showPage(pageName);
+                window.history.pushState(null, '', `${pageName}.html`);
             });
         });
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section[id]');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-                link.style.color = 'var(--text-secondary)';
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.style.color = 'var(--primary)';
-                }
-            });
-        });
+        // Initialize based on current page
+        const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'home';
+        showPage(currentPage);
     </script>
 </body>
 </html>
