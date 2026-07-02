@@ -842,6 +842,7 @@
             <li><a class="nav-link" data-page="home" onclick="navigateTo('home')">Home</a></li>
             <li><a class="nav-link" data-page="features" onclick="navigateTo('features')">Features</a></li>
             <li><a class="nav-link" data-page="editions" onclick="navigateTo('editions')">Editions</a></li>
+            <li><a class="nav-link" data-page="hardware" onclick="navigateTo('hardware')">Compatibility</a></li>
             <li><a class="nav-link" data-page="fai" onclick="navigateTo('fai')">fAI</a></li>
             <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub</a></li>
         </ul>
@@ -905,6 +906,13 @@
                             <li>User controlled</li>
                         </ul>
                     </div>
+                </div>
+
+                <!-- Button to hardware checker -->
+                <div style="text-align: center; margin-top: 4rem;">
+                    <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem;">Not sure which edition fits your PC?</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Use our hardware compatibility checker to find out instantly.</p>
+                    <button onclick="navigateTo('hardware')" class="btn-primary">Check My Hardware</button>
                 </div>
             </section>
 
@@ -1043,10 +1051,30 @@
                     </div>
                 </div>
 
-                <!-- Hardware Checker -->
+                <!-- Link to hardware checker -->
+                <div style="text-align: center; margin-top: 4rem;">
+                    <h3 style="color: var(--primary); font-size: 1.8rem; margin-bottom: 1rem;">Not sure which edition your PC can run?</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">Use our dedicated hardware compatibility tool to find out in seconds.</p>
+                    <button onclick="navigateTo('hardware')" class="btn-primary">Open Hardware Checker</button>
+                </div>
+
+                <section class="cta-section" style="margin-top: 6rem;">
+                    <h2>Choose Your Edition</h2>
+                    <p>All editions are free and available in 2027. Find the perfect fit for your needs.</p>
+                    <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Learn More</a>
+                </section>
+            </section>
+        </div>
+
+        <!-- New Hardware Checker Page -->
+        <div id="hardware-page" class="page">
+            <section class="content-section">
+                <h2 class="section-title">Hardware <span>Compatibility Checker</span></h2>
+                <p class="section-subtitle">Click the button below to scan your system and see which ForgeOS editions your computer can run smoothly.</p>
+
                 <div class="hardware-checker">
-                    <h3>🔍 Check Your PC Compatibility</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Click below to check what ForgeOS editions your computer supports.</p>
+                    <h3>Check Your PC Compatibility</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">The detector reads your browser's hardware information. For best results, allow the detection or check your system manually.</p>
                     <button class="checker-button" onclick="checkHardware()">Check My Hardware</button>
                     
                     <div id="checker-results" class="checker-results">
@@ -1055,11 +1083,15 @@
                     </div>
                 </div>
 
-                <section class="cta-section" style="margin-top: 6rem;">
-                    <h2>Choose Your Edition</h2>
-                    <p>All editions are free and available in 2027. Find the perfect fit for your needs.</p>
-                    <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Learn More</a>
-                </section>
+                <div style="margin-top: 3rem; padding: 2rem; background: rgba(0,212,255,0.05); border-radius: 10px; border: 1px solid rgba(0,212,255,0.15);">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">System Requirements at a Glance</h3>
+                    <ul style="color: var(--text-secondary); list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <li><strong>ForgeOS Pro:</strong> 8+ cores, 16GB RAM</li>
+                        <li><strong>ForgeOS Home:</strong> 2+ cores, 4GB RAM</li>
+                        <li><strong>ForgeOS Edu:</strong> 2+ cores, 2GB RAM</li>
+                        <li><strong>ForgeOS Lite:</strong> 1+ core, 1GB RAM</li>
+                    </ul>
+                </div>
             </section>
         </div>
 
@@ -1163,6 +1195,7 @@
                 <ul>
                     <li><a onclick="navigateTo('features')">Features</a></li>
                     <li><a onclick="navigateTo('editions')">Editions</a></li>
+                    <li><a onclick="navigateTo('hardware')">Compatibility</a></li>
                     <li><a onclick="navigateTo('fai')">fAI</a></li>
                     <li><a href="https://github.com/ma19031435-eng/forgeos/releases" target="_blank">Releases</a></li>
                 </ul>
@@ -1227,21 +1260,16 @@
                 const specsDiv = document.getElementById('hw-specs');
                 const resultDiv = document.getElementById('hw-result');
 
-                // Get device info
-                const navigator_info = "Navigating in " + navigator.appName + " v" + navigator.appVersion;
-                
-                // Try to get GPU info
+                // Get GPU info
                 const canvas = document.createElement('canvas');
                 const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
                 const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
                 const gpu = gl ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : 'Unknown';
 
-                // CPU estimation (browser can't detect exact cores, but we can estimate from navigator)
                 const cpuCores = navigator.hardwareConcurrency || 'Unknown';
                 const ram = navigator.deviceMemory || 'Unknown';
                 const storage = 'Unknown (Check System Settings)';
 
-                // Display hardware specs
                 specsDiv.innerHTML = `
                     <div class="hw-spec"><strong>Processor Cores Detected:</strong> ${cpuCores}</div>
                     <div class="hw-spec"><strong>RAM Detected:</strong> ${ram}GB</div>
@@ -1250,7 +1278,6 @@
                     <p style="color: #ffaa00; font-size: 0.9rem; margin-top: 1rem;">⚠️ Note: Browser detection has limitations. For accurate results, check your system settings manually.</p>
                 `;
 
-                // Check compatibility
                 let coresNum = typeof cpuCores === 'string' ? parseInt(cpuCores) : cpuCores;
                 let ramNum = typeof ram === 'string' ? parseInt(ram) : ram;
 
@@ -1258,55 +1285,31 @@
                     'ForgeOS Pro': false,
                     'ForgeOS Home': false,
                     'ForgeOS Edu': false,
-                    'ForgeOS Lite': true // Lite supports everything
+                    'ForgeOS Lite': true
                 };
 
-                // ForgeOS Pro: Octa-core (8+), 16GB RAM
                 if (coresNum >= 8 && ramNum >= 16) {
                     compatibility['ForgeOS Pro'] = true;
                 }
-
-                // ForgeOS Home: Dual-core (2+), 4GB RAM
                 if (coresNum >= 2 && ramNum >= 4) {
                     compatibility['ForgeOS Home'] = true;
                 }
-
-                // ForgeOS Edu: Dual-core (2+), 2GB RAM
                 if (coresNum >= 2 && ramNum >= 2) {
                     compatibility['ForgeOS Edu'] = true;
                 }
 
-                // Build results HTML
                 let resultHTML = '<div class="hw-result"><h4>Compatibility Results</h4>';
-
                 const editions = [
-                    {
-                        name: 'ForgeOS Pro',
-                        desc: 'The complete experience for creators and gamers',
-                        req: 'Requires: 8+ cores, 16GB+ RAM'
-                    },
-                    {
-                        name: 'ForgeOS Home',
-                        desc: 'For families and everyday users',
-                        req: 'Requires: 2+ cores, 4GB+ RAM'
-                    },
-                    {
-                        name: 'ForgeOS Edu',
-                        desc: 'Purpose-built for classrooms',
-                        req: 'Requires: 2+ cores, 2GB+ RAM'
-                    },
-                    {
-                        name: 'ForgeOS Lite',
-                        desc: 'For older computers and limited hardware',
-                        req: 'Requires: 1+ core, 1GB+ RAM'
-                    }
+                    { name: 'ForgeOS Pro', desc: 'The complete experience for creators and gamers', req: 'Requires: 8+ cores, 16GB+ RAM' },
+                    { name: 'ForgeOS Home', desc: 'For families and everyday users', req: 'Requires: 2+ cores, 4GB+ RAM' },
+                    { name: 'ForgeOS Edu', desc: 'Purpose-built for classrooms', req: 'Requires: 2+ cores, 2GB+ RAM' },
+                    { name: 'ForgeOS Lite', desc: 'For older computers and limited hardware', req: 'Requires: 1+ core, 1GB+ RAM' }
                 ];
 
                 editions.forEach(edition => {
-                    const isSupported = compatibility[edition.name];
-                    const badgeClass = isSupported ? 'supported' : 'not-supported';
-                    const badgeText = isSupported ? 'SUPPORTED' : 'NOT SUPPORTED';
-
+                    const supported = compatibility[edition.name];
+                    const badgeClass = supported ? 'supported' : 'not-supported';
+                    const badgeText = supported ? 'SUPPORTED' : 'NOT SUPPORTED';
                     resultHTML += `
                         <div class="edition-result ${badgeClass}">
                             <h5>${edition.name} <span class="status-badge ${badgeClass}">${badgeText}</span></h5>
