@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ForgeOS 2027 - The ultimate gaming-optimized operating system for competitive players and creators. Unleash peak performance with next-gen gaming architecture.">
-    <meta name="keywords" content="ForgeOS, gaming OS, gaming operating system, competitive gaming, game optimization, Linux gaming">
-    <title>ForgeOS 2027 - Gaming-Optimized Operating System</title>
+    <meta name="description" content="ForgeOS 2027 - A modern operating system optimized for gaming and general computing. Built for developers, creators, and gamers.">
+    <meta name="keywords" content="ForgeOS, operating system, gaming optimized, Linux, open source, 2027">
+    <title>ForgeOS 2027 - Modern Operating System</title>
     <style>
         * {
             margin: 0;
@@ -415,8 +415,8 @@
             line-height: 1.7;
         }
 
-        /* Performance Section */
-        .performance {
+        /* Use Cases Section */
+        .use-cases {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
             padding: 6rem 2rem;
             margin: 4rem 0;
@@ -426,92 +426,51 @@
             border-bottom: 1px solid rgba(0, 212, 255, 0.2);
         }
 
-        .performance-content {
+        .use-cases-content {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .use-cases-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .performance-text h2 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-        }
-
-        .performance-text h2 span {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .performance-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .performance-metrics {
-            display: flex;
-            flex-direction: column;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .metric {
+        .use-case-card {
             background: rgba(0, 212, 255, 0.05);
             border: 1px solid rgba(0, 212, 255, 0.15);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .metric-name {
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .metric-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 4px;
-            transition: width 2s ease;
-        }
-
-        .performance-visual {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 12px;
             padding: 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
 
-        .performance-visual-content {
-            font-size: 5rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .use-case-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
         }
 
-        /* GPU Optimization Section */
-        .gpu-section {
+        .use-case-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .use-case-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .use-case-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Technical Specifications */
+        .specifications {
             padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
@@ -537,11 +496,12 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
         }
 
-        .spec-icon {
+        .spec-label {
             color: var(--primary);
-            font-weight: 900;
-            font-size: 1.3rem;
+            font-weight: 700;
+            font-size: 0.9rem;
             margin-bottom: 0.8rem;
+            letter-spacing: 0.5px;
         }
 
         .spec-item h4 {
@@ -663,12 +623,11 @@
                 font-size: 2.5rem;
             }
 
-            .performance-content {
+            .specs-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
-            .specs-grid {
+            .use-cases-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -699,37 +658,37 @@
         <a href="#" class="logo">Forge<span class="logo-accent">OS</span></a>
         <ul>
             <li><a href="#features">Features</a></li>
-            <li><a href="#performance">Performance</a></li>
+            <li><a href="#use-cases">Use Cases</a></li>
             <li><a href="#specifications">Specs</a></li>
             <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub</a></li>
         </ul>
-        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="nav-button">Download</a>
+        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="nav-button">Documentation</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">GAMING OPTIMIZED FOR 2027</div>
-            <h1>The Next Generation <span>Gaming OS</span></h1>
-            <p class="hero-subtitle">Experience uncompromised gaming performance with cutting-edge architecture, zero latency overhead, and competitive gaming optimization built from the ground up.</p>
+            <div class="hero-badge">MODERN OPERATING SYSTEM 2027</div>
+            <h1>ForgeOS: <span>Engineered for Productivity</span></h1>
+            <p class="hero-subtitle">A versatile operating system optimized for gaming, creative work, development, and everyday computing. Built on open-source principles with a focus on performance and reliability.</p>
             
             <div class="hero-buttons">
-                <a href="https://github.com/ma19031435-eng/forgeos" class="btn-primary">Get Started</a>
+                <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">View on GitHub</a>
                 <a href="#features" class="btn-secondary">Learn More</a>
             </div>
 
             <div class="hero-stats">
                 <div class="stat-item">
-                    <div class="stat-number">240+</div>
-                    <div class="stat-label">FPS Ready</div>
+                    <div class="stat-number">Open</div>
+                    <div class="stat-label">Source</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">&lt;1ms</div>
-                    <div class="stat-label">Input Lag</div>
+                    <div class="stat-number">Optimized</div>
+                    <div class="stat-label">Performance</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">99.9%</div>
-                    <div class="stat-label">Uptime</div>
+                    <div class="stat-number">Community</div>
+                    <div class="stat-label">Driven</div>
                 </div>
             </div>
         </div>
@@ -737,140 +696,143 @@
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="section-title">Premium <span>Gaming Features</span></h2>
-        <p class="section-subtitle">Engineered for competitive advantage with comprehensive performance optimizations and professional-grade tools.</p>
+        <h2 class="section-title">Core <span>Features</span></h2>
+        <p class="section-subtitle">Built with flexibility in mind. ForgeOS adapts to your needs whether you're gaming, developing, creating, or working.</p>
         
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">V</div>
-                <h3>Vulkan Priority</h3>
-                <p>Native Vulkan optimization with pre-configured driver stacks for maximum graphics performance and minimal CPU bottlenecking.</p>
+                <div class="feature-icon">+</div>
+                <h3>Hardware Agnostic</h3>
+                <p>Runs efficiently on a wide range of hardware from older systems to cutting-edge builds. Minimal resource overhead ensures stability across configurations.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">G</div>
+                <h3>Gaming Optimized</h3>
+                <p>Enhanced driver support and optimization for popular gaming libraries. Competitive performance for modern titles without bloat.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">D</div>
+                <h3>Developer Friendly</h3>
+                <p>Comprehensive development tools, package management, and ecosystem support. Pre-configured for programming, scripting, and software development.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">C</div>
+                <h3>Customizable</h3>
+                <p>Fully open-source architecture allows for deep customization. Modify the kernel, desktop environment, and system components to your preference.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">S</div>
+                <h3>Security Focused</h3>
+                <p>Modern security practices including kernel hardening, secure boot support, and regular updates. Privacy-respecting design with no unnecessary telemetry.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">R</div>
-                <h3>Real-time Kernel</h3>
-                <p>Custom real-time kernel patching eliminates frame stuttering and provides consistent frame timing for competitive gameplay.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">N</div>
-                <h3>Network Optimization</h3>
-                <p>Advanced network stack tuning reduces ping inconsistency and packet loss for superior online multiplayer performance.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">A</div>
-                <h3>Audio Priority</h3>
-                <p>ALSA-based audio stack with ultra-low latency processing for competitive audio cues and spatial awareness.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">P</div>
-                <h3>Power Management</h3>
-                <p>Intelligent power profiling optimizes CPU and GPU frequencies for sustained peak performance during long gaming sessions.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">T</div>
-                <h3>Thermal Control</h3>
-                <p>Advanced thermal management keeps system temperatures optimal, preventing thermal throttling during intensive gaming.</p>
+                <h3>Reliable</h3>
+                <p>Designed for stability and uptime. Robust package management and system updates minimize disruptions to your workflow.</p>
             </div>
         </div>
     </section>
 
-    <!-- Performance Section -->
-    <section class="performance" id="performance">
-        <div class="performance-content">
-            <div class="performance-text">
-                <h2>Unmatched <span>Performance Metrics</span></h2>
-                <p>ForgeOS delivers measurable performance improvements across every metric that matters for competitive gaming. Our custom kernel and driver optimizations provide the edge you need.</p>
-                
-                <div class="performance-metrics">
-                    <div class="metric">
-                        <div class="metric-name">CPU Efficiency</div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 95%;"></div>
-                        </div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-name">GPU Utilization</div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 98%;"></div>
-                        </div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-name">Memory Optimization</div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 92%;"></div>
-                        </div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-name">Thermal Efficiency</div>
-                        <div class="metric-bar">
-                            <div class="metric-fill" style="width: 96%;"></div>
-                        </div>
-                    </div>
+    <!-- Use Cases Section -->
+    <section class="use-cases" id="use-cases">
+        <div class="use-cases-content">
+            <h2 class="section-title">Perfect <span>For Everyone</span></h2>
+            <p class="section-subtitle">Whether you're a gamer, developer, content creator, or everyday user, ForgeOS delivers a solid foundation for your needs.</p>
+            
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">G</div>
+                    <h4>Gaming</h4>
+                    <p>Smooth gameplay with support for major gaming platforms and libraries. Enjoy modern games without unnecessary overhead.</p>
                 </div>
-            </div>
 
-            <div class="performance-visual">
-                <div class="performance-visual-content">
-                    240<br><span style="font-size: 2rem;">FPS</span>
+                <div class="use-case-card">
+                    <div class="use-case-icon">D</div>
+                    <h4>Development</h4>
+                    <p>Everything a developer needs: compilers, version control, package managers, and container support built in.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">C</div>
+                    <h4>Content Creation</h4>
+                    <p>Support for creative software and media editing tools. Stable platform for music production, video editing, and design work.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">W</div>
+                    <h4>Daily Computing</h4>
+                    <p>Web browsing, office work, productivity tools, and everyday applications. Reliable performance for all your daily tasks.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">S</div>
+                    <h4>System Administration</h4>
+                    <p>Server deployment, system management, and automation capabilities. Lightweight enough for embedded systems, powerful enough for servers.</p>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">E</div>
+                    <h4>Education</h4>
+                    <p>Free and open-source platform perfect for learning operating systems, programming, and computer science fundamentals.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GPU & Specifications Section -->
-    <section class="gpu-section" id="specifications">
+    <!-- Technical Specifications -->
+    <section class="specifications" id="specifications">
         <h2 class="section-title">Technical <span>Specifications</span></h2>
-        <p class="section-subtitle">Built on industry-leading technologies and optimized for modern gaming hardware.</p>
+        <p class="section-subtitle">Built with modern standards and interoperability in mind.</p>
         
         <div class="specs-grid">
             <div class="spec-item">
-                <div class="spec-icon">GPU</div>
+                <div class="spec-label">KERNEL</div>
+                <h4>Linux Kernel Base</h4>
+                <p>Built on the latest stable Linux kernel with selective patches for performance and compatibility. Full access to kernel customization and compilation.</p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-label">GRAPHICS</div>
                 <h4>Multi-GPU Support</h4>
-                <p>Native support for NVIDIA, AMD, and Intel graphics. Automatic driver detection and optimization for your specific hardware configuration.</p>
+                <p>Compatible with NVIDIA, AMD, and Intel graphics. Support for both proprietary and open-source drivers with community driver packages available.</p>
             </div>
 
             <div class="spec-item">
-                <div class="spec-icon">CPU</div>
-                <h4>Processor Optimization</h4>
-                <p>Intelligent frequency scaling and core affinity management optimizes performance across Intel, AMD, and ARM architectures.</p>
+                <div class="spec-label">STORAGE</div>
+                <h4>Modern Filesystem</h4>
+                <p>Support for Btrfs, ext4, and other modern filesystems. Optimized I/O handling for both SSDs and traditional storage configurations.</p>
             </div>
 
             <div class="spec-item">
-                <div class="spec-icon">SSD</div>
-                <h4>Storage Performance</h4>
-                <p>NVMe optimization with custom I/O schedulers reduces game load times and improves streaming performance by up to 40%.</p>
+                <div class="spec-label">DESKTOP</div>
+                <h4>Flexible DE Options</h4>
+                <p>Choose from GNOME, KDE Plasma, XFCE, or lightweight alternatives. Mix and match components based on your performance needs and preferences.</p>
             </div>
 
             <div class="spec-item">
-                <div class="spec-icon">RAM</div>
-                <h4>Memory Management</h4>
-                <p>Advanced memory pooling and cache optimization algorithms maximize available system RAM for gaming applications.</p>
+                <div class="spec-label">PACKAGE MANAGER</div>
+                <h4>Robust Package Management</h4>
+                <p>Multiple package manager options including DNF and Pacman variants. Easy software installation and system updates with dependency resolution.</p>
             </div>
 
             <div class="spec-item">
-                <div class="spec-icon">NET</div>
-                <h4>Network Stack</h4>
-                <p>Custom TCP/UDP optimization with buffer tuning for reduced latency and improved packet handling in online multiplayer.</p>
-            </div>
-
-            <div class="spec-item">
-                <div class="spec-icon">OS</div>
-                <h4>Minimal Footprint</h4>
-                <p>Lightweight 64-bit kernel using only 800MB RAM at idle, leaving maximum resources available for your games.</p>
+                <div class="spec-label">COMPATIBILITY</div>
+                <h4>Cross-Platform Tools</h4>
+                <p>Full compatibility with standard Linux applications and tools. Containerization support for isolated application environments and reproducible workflows.</p>
             </div>
         </div>
     </section>
 
     <!-- Call to Action -->
     <section class="cta-section">
-        <h2>Ready to Dominate?</h2>
-        <p>Join the competitive gaming revolution. ForgeOS 2027 is engineered for players who demand the absolute best.</p>
-        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Download ForgeOS Now</a>
+        <h2>Ready to Experience ForgeOS?</h2>
+        <p>Join a growing community of users and developers. Get started on GitHub today.</p>
+        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Explore on GitHub</a>
     </section>
 
     <!-- Footer -->
@@ -880,19 +842,19 @@
                 <h4>Product</h4>
                 <ul>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#performance">Performance</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
                     <li><a href="#specifications">Specifications</a></li>
-                    <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">Changelog</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos/releases" target="_blank">Releases</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>Community</h4>
                 <ul>
-                    <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub Repository</a></li>
                     <li><a href="https://github.com/ma19031435-eng/forgeos/discussions" target="_blank">Discussions</a></li>
-                    <li><a href="https://github.com/ma19031435-eng/forgeos/issues" target="_blank">Issues</a></li>
-                    <li><a href="https://github.com/ma19031435-eng/forgeos/wiki" target="_blank">Documentation</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos/issues" target="_blank">Issues & Bugs</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos/wiki" target="_blank">Wiki</a></li>
                 </ul>
             </div>
 
@@ -900,20 +862,20 @@
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="https://github.com/ma19031435-eng" target="_blank">GitHub Profile</a></li>
-                    <li><a href="mailto:contact@forgeos.dev">Support</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos/blob/main/README.md" target="_blank">Getting Started</a></li>
                     <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">License</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
                 <h4>About ForgeOS</h4>
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">ForgeOS is a next-generation gaming operating system engineered for competitive players and content creators who demand peak performance.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">ForgeOS is an open-source operating system built for versatility. Whether you're gaming, developing, creating, or just computing, ForgeOS provides a solid, reliable foundation.</p>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2027 ForgeOS. All rights reserved. | Engineered for Gaming Excellence</p>
+            <p>&copy; 2027 ForgeOS. All rights reserved. | Open Source Project | Built with Community</p>
         </div>
     </footer>
 
@@ -930,22 +892,6 @@
                     });
                 }
             });
-        });
-
-        // Animate metric bars on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'none';
-                    setTimeout(() => {
-                        entry.target.style.animation = null;
-                    });
-                }
-            });
-        });
-
-        document.querySelectorAll('.metric-fill').forEach(el => {
-            observer.observe(el);
         });
 
         // Active navigation highlighting
