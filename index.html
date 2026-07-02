@@ -383,6 +383,8 @@
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            font-weight: bold;
+            color: var(--primary);
         }
 
         .card h3 {
@@ -412,7 +414,7 @@
         }
 
         .card-features li::before {
-            content: '→';
+            content: '\2192'; /* Right arrow */
             position: absolute;
             left: 0;
             color: var(--primary);
@@ -872,7 +874,7 @@
                 
                 <div class="grid">
                     <div class="card">
-                        <div class="card-icon">🎮</div>
+                        <div class="card-icon">Gaming</div>
                         <h3>Gaming</h3>
                         <p>Complete gaming stack pre-installed and optimized. Play modern titles with confidence.</p>
                         <ul class="card-features">
@@ -884,7 +886,7 @@
                     </div>
 
                     <div class="card">
-                        <div class="card-icon">🎨</div>
+                        <div class="card-icon">Creation</div>
                         <h3>Content Creation</h3>
                         <p>Professional tools for creators built in. Edit, compose, and design without limits.</p>
                         <ul class="card-features">
@@ -896,7 +898,7 @@
                     </div>
 
                     <div class="card">
-                        <div class="card-icon">🤖</div>
+                        <div class="card-icon">AI</div>
                         <h3>Artificial Intelligence</h3>
                         <p>fAI: local, private AI processing. Chat, vision, voice, code, and translation.</p>
                         <ul class="card-features">
@@ -929,64 +931,28 @@
                 <h2 class="section-title">Complete <span>Feature Set</span></h2>
                 <p class="section-subtitle">Everything you need built in. From gaming to creation to AI, ForgeOS is fully equipped.</p>
                 
-                <h3 style="color: var(--primary); font-size: 2rem; margin-top: 4rem; margin-bottom: 2rem;">🎮 Gaming Stack</h3>
+                <h3 style="color: var(--primary); font-size: 2rem; margin-top: 4rem; margin-bottom: 2rem;">Gaming Stack</h3>
                 <div class="grid" style="margin-bottom: 4rem;">
-                    <div class="card">
-                        <h3>Steam & Proton</h3>
-                        <p>Play thousands of games with Steam and Proton compatibility layer. Run Windows games natively on Linux.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Lutris</h3>
-                        <p>Universal gaming platform for managing and launching games from multiple sources with optimized configurations.</p>
-                    </div>
-                    <div class="card">
-                        <h3>MangoHud</h3>
-                        <p>In-game overlay to monitor performance metrics including FPS, GPU/CPU usage, and temperatures.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Gamemode</h3>
-                        <p>Automatic performance optimization daemon that adjusts system settings for optimal gaming performance.</p>
-                    </div>
+                    <div class="card"><h3>Steam & Proton</h3><p>Play thousands of games with Steam and Proton compatibility layer. Run Windows games natively on Linux.</p></div>
+                    <div class="card"><h3>Lutris</h3><p>Universal gaming platform for managing and launching games from multiple sources with optimized configurations.</p></div>
+                    <div class="card"><h3>MangoHud</h3><p>In-game overlay to monitor performance metrics including FPS, GPU/CPU usage, and temperatures.</p></div>
+                    <div class="card"><h3>Gamemode</h3><p>Automatic performance optimization daemon that adjusts system settings for optimal gaming performance.</p></div>
                 </div>
 
-                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">🎨 Content Creation Tools</h3>
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">Content Creation Tools</h3>
                 <div class="grid" style="margin-bottom: 4rem;">
-                    <div class="card">
-                        <h3>Blender 3D</h3>
-                        <p>Professional 3D modeling, animation, rendering, and visual effects creation suite.</p>
-                    </div>
-                    <div class="card">
-                        <h3>OBS Studio</h3>
-                        <p>Streaming and recording software for content creators. Broadcasting to multiple platforms simultaneously.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Kdenlive</h3>
-                        <p>Non-linear video editor with advanced effects, transitions, and color grading capabilities.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Audio Suite</h3>
-                        <p>Ardour, Audacity, and LMMS for music production, audio editing, and beat making.</p>
-                    </div>
+                    <div class="card"><h3>Blender 3D</h3><p>Professional 3D modeling, animation, rendering, and visual effects creation suite.</p></div>
+                    <div class="card"><h3>OBS Studio</h3><p>Streaming and recording software for content creators. Broadcasting to multiple platforms simultaneously.</p></div>
+                    <div class="card"><h3>Kdenlive</h3><p>Non-linear video editor with advanced effects, transitions, and color grading capabilities.</p></div>
+                    <div class="card"><h3>Audio Suite</h3><p>Ardour, Audacity, and LMMS for music production, audio editing, and beat making.</p></div>
                 </div>
 
-                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">⚙️ System Features</h3>
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 2rem;">System Features</h3>
                 <div class="grid">
-                    <div class="card">
-                        <h3>Forge Desktop</h3>
-                        <p>Custom desktop environment with visual effects. Dark charcoal background with cyan accents. Fully intuitive.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Forge App Center</h3>
-                        <p>Curated software library with one-click installation. Discover and manage applications easily.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Forge Control Panel</h3>
-                        <p>Single location for all system settings. Display, audio, network, power management, and user accounts.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Terminal Optional</h3>
-                        <p>Fully usable without command line. Every setting and operation through graphical interface.</p>
-                    </div>
+                    <div class="card"><h3>Forge Desktop</h3><p>Custom desktop environment with visual effects. Dark charcoal background with cyan accents. Fully intuitive.</p></div>
+                    <div class="card"><h3>Forge App Center</h3><p>Curated software library with one-click installation. Discover and manage applications easily.</p></div>
+                    <div class="card"><h3>Forge Control Panel</h3><p>Single location for all system settings. Display, audio, network, power management, and user accounts.</p></div>
+                    <div class="card"><h3>Terminal Optional</h3><p>Fully usable without command line. Every setting and operation through graphical interface.</p></div>
                 </div>
             </section>
         </div>
@@ -1066,7 +1032,7 @@
             </section>
         </div>
 
-        <!-- New Hardware Checker Page -->
+        <!-- Hardware Checker Page -->
         <div id="hardware-page" class="page">
             <section class="content-section">
                 <h2 class="section-title">Hardware <span>Compatibility Checker</span></h2>
@@ -1108,39 +1074,17 @@
                             <p>Every fAI feature processes data locally on your computer. Your conversations, images, code, and documents never leave your system. You have full control.</p>
                         </div>
                         <ul class="fai-features">
-                            <li>
-                                <strong>fAI Chat</strong>
-                                <p>Local language model with graphical chat interface. Conversation, writing, coding questions, and research assistance.</p>
-                            </li>
-                            <li>
-                                <strong>fAI Vision</strong>
-                                <p>Image generation, editing, inpainting, and upscaling. Accessible directly from the right-click menu in file manager and desktop.</p>
-                            </li>
-                            <li>
-                                <strong>fAI Voice</strong>
-                                <p>Speech-to-text dictation that works in any text field. Text-to-speech with natural voices. Fully offline operation.</p>
-                            </li>
+                            <li><strong>fAI Chat</strong><p>Local language model with graphical chat interface. Conversation, writing, coding questions, and research assistance.</p></li>
+                            <li><strong>fAI Vision</strong><p>Image generation, editing, inpainting, and upscaling. Accessible directly from the right-click menu in file manager and desktop.</p></li>
+                            <li><strong>fAI Voice</strong><p>Speech-to-text dictation that works in any text field. Text-to-speech with natural voices. Fully offline operation.</p></li>
                         </ul>
                     </div>
-
                     <div>
                         <ul class="fai-features">
-                            <li>
-                                <strong>fAI Code</strong>
-                                <p>Code assistant integrated with system text editor. Autocomplete suggestions, error detection, and refactoring help.</p>
-                            </li>
-                            <li>
-                                <strong>fAI Translate</strong>
-                                <p>Offline translation for text and documents. Covers multiple languages without requiring internet connection.</p>
-                            </li>
-                            <li>
-                                <strong>Flexible Model Management</strong>
-                                <p>Download and run different open models through the fAI interface. No specific models bundled. Full user control.</p>
-                            </li>
-                            <li>
-                                <strong>Hardware Requirements</strong>
-                                <p>fAI Chat: 4GB VRAM. fAI Vision: 6GB VRAM. Voice, Code, Translate: No additional requirements.</p>
-                            </li>
+                            <li><strong>fAI Code</strong><p>Code assistant integrated with system text editor. Autocomplete suggestions, error detection, and refactoring help.</p></li>
+                            <li><strong>fAI Translate</strong><p>Offline translation for text and documents. Covers multiple languages without requiring internet connection.</p></li>
+                            <li><strong>Flexible Model Management</strong><p>Download and run different open models through the fAI interface. No specific models bundled. Full user control.</p></li>
+                            <li><strong>Hardware Requirements</strong><p>fAI Chat: 4GB VRAM. fAI Vision: 6GB VRAM. Voice, Code, Translate: No additional requirements.</p></li>
                         </ul>
                     </div>
                 </div>
@@ -1152,30 +1096,12 @@
                 </div>
 
                 <section class="privacy-features" style="margin-top: 4rem;">
-                    <div class="privacy-item">
-                        <strong>No Cloud Dependency</strong>
-                        <p>Works completely offline</p>
-                    </div>
-                    <div class="privacy-item">
-                        <strong>No Data Collection</strong>
-                        <p>Your data stays on your computer</p>
-                    </div>
-                    <div class="privacy-item">
-                        <strong>No Accounts Required</strong>
-                        <p>No login, no registration</p>
-                    </div>
-                    <div class="privacy-item">
-                        <strong>No Licensing Fees</strong>
-                        <p>Included with ForgeOS Pro</p>
-                    </div>
-                    <div class="privacy-item">
-                        <strong>No Usage Limits</strong>
-                        <p>Use as much as you want</p>
-                    </div>
-                    <div class="privacy-item">
-                        <strong>No Censorship</strong>
-                        <p>You control the models</p>
-                    </div>
+                    <div class="privacy-item"><strong>No Cloud Dependency</strong><p>Works completely offline</p></div>
+                    <div class="privacy-item"><strong>No Data Collection</strong><p>Your data stays on your computer</p></div>
+                    <div class="privacy-item"><strong>No Accounts Required</strong><p>No login, no registration</p></div>
+                    <div class="privacy-item"><strong>No Licensing Fees</strong><p>Included with ForgeOS Pro</p></div>
+                    <div class="privacy-item"><strong>No Usage Limits</strong><p>Use as much as you want</p></div>
+                    <div class="privacy-item"><strong>No Censorship</strong><p>You control the models</p></div>
                 </section>
 
                 <section class="cta-section" style="margin-top: 6rem;">
@@ -1200,7 +1126,6 @@
                     <li><a href="https://github.com/ma19031435-eng/forgeos/releases" target="_blank">Releases</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>Community</h4>
                 <ul>
@@ -1210,7 +1135,6 @@
                     <li><a href="https://github.com/ma19031435-eng/forgeos/wiki" target="_blank">Wiki</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>Resources</h4>
                 <ul>
@@ -1220,13 +1144,11 @@
                     <li><a href="#">License</a></li>
                 </ul>
             </div>
-
             <div class="footer-section">
                 <h4>About</h4>
                 <p style="color: var(--text-secondary);">ForgeOS is developed by Forge Technologies. A modern operating system for gaming, content creation, and artificial intelligence. Free, private, and community-driven.</p>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2027 ForgeOS. All rights reserved. | Developed with Privacy & Freedom</p>
         </div>
@@ -1253,7 +1175,7 @@
             }
         }
 
-        // Hardware checker
+        // Hardware checker (no emojis)
         async function checkHardware() {
             try {
                 const resultsDiv = document.getElementById('checker-results');
@@ -1275,7 +1197,7 @@
                     <div class="hw-spec"><strong>RAM Detected:</strong> ${ram}GB</div>
                     <div class="hw-spec"><strong>GPU:</strong> ${gpu}</div>
                     <div class="hw-spec"><strong>Storage:</strong> ${storage}</div>
-                    <p style="color: #ffaa00; font-size: 0.9rem; margin-top: 1rem;">⚠️ Note: Browser detection has limitations. For accurate results, check your system settings manually.</p>
+                    <p style="color: #ffaa00; font-size: 0.9rem; margin-top: 1rem;">Note: Browser detection has limitations. For accurate results, check your system settings manually.</p>
                 `;
 
                 let coresNum = typeof cpuCores === 'string' ? parseInt(cpuCores) : cpuCores;
@@ -1288,15 +1210,9 @@
                     'ForgeOS Lite': true
                 };
 
-                if (coresNum >= 8 && ramNum >= 16) {
-                    compatibility['ForgeOS Pro'] = true;
-                }
-                if (coresNum >= 2 && ramNum >= 4) {
-                    compatibility['ForgeOS Home'] = true;
-                }
-                if (coresNum >= 2 && ramNum >= 2) {
-                    compatibility['ForgeOS Edu'] = true;
-                }
+                if (coresNum >= 8 && ramNum >= 16) compatibility['ForgeOS Pro'] = true;
+                if (coresNum >= 2 && ramNum >= 4) compatibility['ForgeOS Home'] = true;
+                if (coresNum >= 2 && ramNum >= 2) compatibility['ForgeOS Edu'] = true;
 
                 let resultHTML = '<div class="hw-result"><h4>Compatibility Results</h4>';
                 const editions = [
@@ -1314,7 +1230,7 @@
                         <div class="edition-result ${badgeClass}">
                             <h5>${edition.name} <span class="status-badge ${badgeClass}">${badgeText}</span></h5>
                             <p>${edition.desc}</p>
-                            <p style="margin-top: 0.5rem; font-size: 0.85rem;">📋 ${edition.req}</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.85rem;">${edition.req}</p>
                         </div>
                     `;
                 });
@@ -1341,7 +1257,7 @@
             }
         }
 
-        // Initialize
+        // Initialize global functions
         window.navigateTo = navigateTo;
         window.checkHardware = checkHardware;
     </script>
