@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ForgeOS 1.0 Beta - A powerful open-source operating system designed for developers and creators.">
-    <meta name="keywords" content="ForgeOS, operating system, open source, development, linux">
-    <title>ForgeOS 1.0 Beta - Modern Operating System for Developers</title>
+    <meta name="description" content="ForgeOS 2027 - The ultimate gaming-optimized operating system for competitive players and creators. Unleash peak performance with next-gen gaming architecture.">
+    <meta name="keywords" content="ForgeOS, gaming OS, gaming operating system, competitive gaming, game optimization, Linux gaming">
+    <title>ForgeOS 2027 - Gaming-Optimized Operating System</title>
     <style>
         * {
             margin: 0;
@@ -14,21 +14,49 @@
         }
 
         :root {
-            --primary-color: #ff6b35;
-            --secondary-color: #004e89;
-            --accent-color: #f7931e;
-            --dark-bg: #0f1419;
-            --light-bg: #f5f7fa;
-            --text-dark: #1a1a1a;
-            --text-light: #ffffff;
-            --border-color: #e0e0e0;
+            --primary: #00d4ff;
+            --primary-dark: #0099cc;
+            --secondary: #1a1a2e;
+            --tertiary: #16213e;
+            --accent: #ff006e;
+            --accent-light: #ff1493;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --bg-dark: #0f0f1e;
+            --border-glow: 1px solid rgba(0, 212, 255, 0.2);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.8);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
         }
 
         /* Navigation */
@@ -36,265 +64,511 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
+            background: rgba(15, 15, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: var(--border-glow);
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            height: 70px;
         }
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--secondary-color);
+            font-weight: 800;
+            color: var(--text-primary);
             text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .logo span {
-            color: var(--primary-color);
+        .logo-accent {
+            color: var(--primary);
+            font-weight: 900;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-secondary);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        nav a:hover {
-            color: var(--primary-color);
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
         }
 
-        .cta-button {
-            background: var(--primary-color);
-            color: var(--text-light);
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
+        nav a:hover,
+        nav a:hover::after {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent-light));
+            color: var(--bg-dark);
+            padding: 0.7rem 1.8rem;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            display: inline-block;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
         }
 
-        .cta-button:hover {
-            background: var(--secondary-color);
+        .nav-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+            background: linear-gradient(135deg, var(--accent-light), var(--primary));
         }
 
         /* Hero Section */
         .hero {
-            margin-top: 60px;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #003d6b 100%);
-            color: var(--text-light);
-            padding: 6rem 2rem;
-            text-align: center;
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            margin-top: 70px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
         }
 
+        /* Animated background elements */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(247, 147, 30, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 20, 147, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            animation: float 25s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(40px, -40px); }
         }
 
         .hero-content {
+            max-width: 1000px;
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
             margin-bottom: 1rem;
-            font-weight: 800;
-            line-height: 1.2;
+            background: linear-gradient(90deg, var(--text-primary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 1s ease-out;
         }
 
-        .hero .version {
-            display: inline-block;
-            background: rgba(255, 107, 53, 0.2);
-            color: var(--accent-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .hero h1 span {
+            color: var(--accent);
+            -webkit-text-fill-color: var(--accent);
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent-light));
+            color: var(--bg-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(255, 20, 147, 0.6);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--text-light);
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--text-light);
-            border-radius: 25px;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
-            background: var(--text-light);
-            color: var(--secondary-color);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
         }
 
-        /* Features Section */
-        .features {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
-        .section-title span {
-            color: var(--primary-color);
-        }
-
-        .features-grid {
+        .hero-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--light-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: all 0.3s;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-        }
-
-        .feature-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--light-bg);
-            padding: 5rem 2rem;
-            margin: 3rem 0;
-        }
-
-        .about-content {
-            max-width: 900px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .about-content h2 {
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--secondary-color);
-            color: var(--text-light);
-            padding: 3rem 2rem;
-            margin: 3rem 0;
-        }
-
-        .stats-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat {
+        .stat-item {
             padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 8px;
         }
 
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-title span {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 600px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--bg-dark);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Performance Section */
+        .performance {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--tertiary) 100%);
+            padding: 6rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .performance-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .performance-text h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .performance-text h2 span {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .performance-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .performance-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .metric {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .metric-name {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+            transition: width 2s ease;
+        }
+
+        .performance-visual {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .performance-visual-content {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* GPU Optimization Section */
+        .gpu-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .spec-item {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8));
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .spec-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .spec-icon {
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .spec-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .spec-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         /* CTA Section */
         .cta-section {
-            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--bg-dark);
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, #003d6b 100%);
-            color: var(--text-light);
-            margin: 3rem 0;
+            text-align: center;
+            margin: 4rem 0;
+            border-radius: 12px;
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
         }
 
         .cta-section h2 {
             font-size: 2.5rem;
+            font-weight: 900;
             margin-bottom: 1rem;
         }
 
@@ -306,84 +580,61 @@
 
         /* Footer */
         footer {
-            background: var(--text-dark);
-            color: var(--text-light);
+            background: var(--secondary);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
             padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid #333;
+            margin-top: 6rem;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+        .footer-section h4 {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
-        .footer-links a {
-            color: var(--text-light);
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--primary-color);
+        .footer-section a:hover {
+            color: var(--primary);
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            color: var(--text-light);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: var(--accent-color);
-            transform: scale(1.1);
-        }
-
-        .divider {
-            width: 100%;
-            height: 1px;
-            background: #444;
-            margin: 2rem 0;
-        }
-
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
+                height: auto;
                 gap: 1rem;
-                padding: 1rem;
             }
 
             nav ul {
                 flex-direction: column;
-                gap: 0.5rem;
+                gap: 1rem;
                 text-align: center;
             }
 
@@ -391,173 +642,278 @@
                 font-size: 2.5rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
             }
 
-            .cta-button, .btn-secondary {
+            .btn-primary,
+            .btn-secondary {
                 width: 100%;
             }
 
-            .features-grid {
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .performance-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .specs-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            nav {
+                padding: 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .nav-button {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.8rem;
             }
         }
-
-        .hero-content {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .feature-card {
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
-        }
-
-        .feature-card:nth-child(1) { animation-delay: 0.1s; }
-        .feature-card:nth-child(2) { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) { animation-delay: 0.3s; }
-        .feature-card:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">Forge<span>OS</span></a>
+        <a href="#" class="logo">Forge<span class="logo-accent">OS</span></a>
         <ul>
             <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#download">Download</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#specifications">Specs</a></li>
             <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub</a></li>
         </ul>
-        <a href="https://github.com/ma19031435-eng/forgeos" class="cta-button">Get Started</a>
+        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="nav-button">Download</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="version">1.0 Beta Release</div>
-            <h1>The Future of Open-Source Operating Systems</h1>
-            <p>ForgeOS is a cutting-edge, modern operating system built for developers, creators, and innovators. Forge your own digital experience with powerful tools and endless possibilities.</p>
+            <div class="hero-badge">GAMING OPTIMIZED FOR 2027</div>
+            <h1>The Next Generation <span>Gaming OS</span></h1>
+            <p class="hero-subtitle">Experience uncompromised gaming performance with cutting-edge architecture, zero latency overhead, and competitive gaming optimization built from the ground up.</p>
+            
             <div class="hero-buttons">
-                <a href="https://github.com/ma19031435-eng/forgeos" class="cta-button">Star on GitHub</a>
+                <a href="https://github.com/ma19031435-eng/forgeos" class="btn-primary">Get Started</a>
                 <a href="#features" class="btn-secondary">Learn More</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">240+</div>
+                    <div class="stat-label">FPS Ready</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">&lt;1ms</div>
+                    <div class="stat-label">Input Lag</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
-        <h2 class="section-title">Powerful <span>Features</span></h2>
+        <h2 class="section-title">Premium <span>Gaming Features</span></h2>
+        <p class="section-subtitle">Engineered for competitive advantage with comprehensive performance optimizations and professional-grade tools.</p>
+        
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Optimized performance with minimal overhead. Experience blazing-fast boot times and responsive system operations.</p>
+                <div class="feature-icon">V</div>
+                <h3>Vulkan Priority</h3>
+                <p>Native Vulkan optimization with pre-configured driver stacks for maximum graphics performance and minimal CPU bottlenecking.</p>
             </div>
+
             <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure by Design</h3>
-                <p>Built with security as a first-class citizen. Comprehensive protection against modern threats and vulnerabilities.</p>
+                <div class="feature-icon">R</div>
+                <h3>Real-time Kernel</h3>
+                <p>Custom real-time kernel patching eliminates frame stuttering and provides consistent frame timing for competitive gameplay.</p>
             </div>
+
             <div class="feature-card">
-                <div class="feature-icon">🛠️</div>
-                <h3>Developer Friendly</h3>
-                <p>Comprehensive development tools, package management, and community support to accelerate your workflow.</p>
+                <div class="feature-icon">N</div>
+                <h3>Network Optimization</h3>
+                <p>Advanced network stack tuning reduces ping inconsistency and packet loss for superior online multiplayer performance.</p>
             </div>
+
             <div class="feature-card">
-                <div class="feature-icon">🌐</div>
-                <h3>Open Source</h3>
-                <p>Fully open source with an active community. Contribute, customize, and collaborate with developers worldwide.</p>
+                <div class="feature-icon">A</div>
+                <h3>Audio Priority</h3>
+                <p>ALSA-based audio stack with ultra-low latency processing for competitive audio cues and spatial awareness.</p>
             </div>
+
             <div class="feature-card">
-                <div class="feature-icon">📦</div>
-                <h3>Modern Package Manager</h3>
-                <p>Efficient package management system for seamless software installation, updates, and dependency resolution.</p>
+                <div class="feature-icon">P</div>
+                <h3>Power Management</h3>
+                <p>Intelligent power profiling optimizes CPU and GPU frequencies for sustained peak performance during long gaming sessions.</p>
             </div>
+
             <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>Customizable</h3>
-                <p>Fully customizable desktop environment and system configuration. Make ForgeOS truly yours.</p>
+                <div class="feature-icon">T</div>
+                <h3>Thermal Control</h3>
+                <p>Advanced thermal management keeps system temperatures optimal, preventing thermal throttling during intensive gaming.</p>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat">
-                <div class="stat-number">1.0</div>
-                <div class="stat-label">Beta Version</div>
+    <!-- Performance Section -->
+    <section class="performance" id="performance">
+        <div class="performance-content">
+            <div class="performance-text">
+                <h2>Unmatched <span>Performance Metrics</span></h2>
+                <p>ForgeOS delivers measurable performance improvements across every metric that matters for competitive gaming. Our custom kernel and driver optimizations provide the edge you need.</p>
+                
+                <div class="performance-metrics">
+                    <div class="metric">
+                        <div class="metric-name">CPU Efficiency</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-name">GPU Utilization</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 98%;"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-name">Memory Optimization</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-name">Thermal Efficiency</div>
+                        <div class="metric-bar">
+                            <div class="metric-fill" style="width: 96%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Open Source</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">∞</div>
-                <div class="stat-label">Possibilities</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">🚀</div>
-                <div class="stat-label">Coming Soon</div>
+
+            <div class="performance-visual">
+                <div class="performance-visual-content">
+                    240<br><span style="font-size: 2rem;">FPS</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-content">
-            <h2 class="section-title">About <span>ForgeOS</span></h2>
-            <p>ForgeOS represents a bold vision for the future of operating systems. Built from the ground up with modern principles, it combines the power and flexibility of open-source development with the polished experience users expect from contemporary systems.</p>
-            <p>Whether you're a seasoned developer, a creative professional, or someone who simply wants more control over their computing environment, ForgeOS provides the tools and foundation you need to succeed.</p>
-            <p>Our mission is to democratize access to powerful, secure, and customizable operating systems while fostering a vibrant community of contributors and users who believe in the power of open-source software.</p>
+    <!-- GPU & Specifications Section -->
+    <section class="gpu-section" id="specifications">
+        <h2 class="section-title">Technical <span>Specifications</span></h2>
+        <p class="section-subtitle">Built on industry-leading technologies and optimized for modern gaming hardware.</p>
+        
+        <div class="specs-grid">
+            <div class="spec-item">
+                <div class="spec-icon">GPU</div>
+                <h4>Multi-GPU Support</h4>
+                <p>Native support for NVIDIA, AMD, and Intel graphics. Automatic driver detection and optimization for your specific hardware configuration.</p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-icon">CPU</div>
+                <h4>Processor Optimization</h4>
+                <p>Intelligent frequency scaling and core affinity management optimizes performance across Intel, AMD, and ARM architectures.</p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-icon">SSD</div>
+                <h4>Storage Performance</h4>
+                <p>NVMe optimization with custom I/O schedulers reduces game load times and improves streaming performance by up to 40%.</p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-icon">RAM</div>
+                <h4>Memory Management</h4>
+                <p>Advanced memory pooling and cache optimization algorithms maximize available system RAM for gaming applications.</p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-icon">NET</div>
+                <h4>Network Stack</h4>
+                <p>Custom TCP/UDP optimization with buffer tuning for reduced latency and improved packet handling in online multiplayer.</p>
+            </div>
+
+            <div class="spec-item">
+                <div class="spec-icon">OS</div>
+                <h4>Minimal Footprint</h4>
+                <p>Lightweight 64-bit kernel using only 800MB RAM at idle, leaving maximum resources available for your games.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="cta-section" id="download">
-        <h2>Ready to Forge Your Own OS?</h2>
-        <p>Join thousands of developers and creators using ForgeOS. Get started today with our latest beta release.</p>
-        <a href="https://github.com/ma19031435-eng/forgeos" class="cta-button">Download ForgeOS Now</a>
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <h2>Ready to Dominate?</h2>
+        <p>Join the competitive gaming revolution. ForgeOS 2027 is engineered for players who demand the absolute best.</p>
+        <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" class="btn-primary">Download ForgeOS Now</a>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h3>ForgeOS</h3>
-            <div class="footer-links">
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub</a>
-                <a href="https://github.com/ma19031435-eng/forgeos/issues" target="_blank">Report Issues</a>
-                <a href="https://github.com/ma19031435-eng/forgeos/discussions" target="_blank">Discussions</a>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#performance">Performance</a></li>
+                    <li><a href="#specifications">Specifications</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">Changelog</a></li>
+                </ul>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/ma19031435-eng/forgeos" target="_blank" title="GitHub">
-                    <span>🐙</span>
-                </a>
-                <a href="mailto:contact@forgeos.dev" title="Email">
-                    <span>✉️</span>
-                </a>
+
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos" target="_blank">GitHub</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos/discussions" target="_blank">Discussions</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos/issues" target="_blank">Issues</a></li>
+                    <li><a href="https://github.com/ma19031435-eng/forgeos/wiki" target="_blank">Documentation</a></li>
+                </ul>
             </div>
-            <div class="divider"></div>
-            <p class="copyright">&copy; 2026 ForgeOS. All rights reserved. | Open Source with ❤️</p>
+
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://github.com/ma19031435-eng" target="_blank">GitHub Profile</a></li>
+                    <li><a href="mailto:contact@forgeos.dev">Support</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>About ForgeOS</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">ForgeOS is a next-generation gaming operating system engineered for competitive players and content creators who demand peak performance.</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2027 ForgeOS. All rights reserved. | Engineered for Gaming Excellence</p>
         </div>
     </footer>
 
@@ -576,10 +932,26 @@
             });
         });
 
-        // Active nav link highlighting
+        // Animate metric bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'none';
+                    setTimeout(() => {
+                        entry.target.style.animation = null;
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.metric-fill').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
         window.addEventListener('scroll', () => {
             let current = '';
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section[id]');
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
@@ -589,14 +961,20 @@
                 }
             });
 
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
+            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                link.style.color = 'var(--text-secondary)';
                 if (link.getAttribute('href').slice(1) === current) {
-                    link.style.color = 'var(--primary-color)';
-                } else if (link.getAttribute('href') !== 'https://github.com/ma19031435-eng/forgeos' && link.getAttribute('href') !== '#') {
-                    link.style.color = 'var(--text-dark)';
+                    link.style.color = 'var(--primary)';
                 }
             });
+        });
+
+        // Parallax effect on hero section
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.backgroundPosition = `0 ${window.pageYOffset * 0.5}px`;
+            }
         });
     </script>
 </body>
